@@ -1,6 +1,9 @@
 package com.example.floatboyz
 
+import android.graphics.drawable.AnimatedImageDrawable
+import android.os.Build
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -31,6 +34,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
 import com.example.floatboyz.ui.theme.FloatBoyzTheme
 
 class MainActivity : ComponentActivity() {
@@ -231,4 +235,40 @@ fun Pagina3() {
 
 @Composable
 fun Pagina4() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(horizontal = 28.dp, vertical = 32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            text = "Fim da apresentação!",
+            fontSize = 28.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFF1B4D3E)
+        )
+
+        AndroidView(
+            factory = { context ->
+                ImageView(context).apply {
+                    setImageResource(R.drawable.smt)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                        (drawable as? AnimatedImageDrawable)?.start()
+                    }
+                }
+            },
+            modifier = Modifier
+                .padding(vertical = 20.dp)
+                .size(160.dp)
+        )
+
+        Text(
+            text = "Obrigado a todos pela atenção. Tenham uma ótima noite!",
+            fontSize = 15.sp,
+            color = Color(0xFF6C757D),
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(top = 8.dp)
+        )
+    }
 }
