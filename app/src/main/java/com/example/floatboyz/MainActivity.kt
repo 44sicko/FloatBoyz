@@ -3,6 +3,7 @@ package com.example.floatboyz
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,6 +12,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
@@ -22,6 +24,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -156,13 +160,74 @@ fun Pagina1() {
 
 @Composable
 fun Pagina2() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(horizontal = 28.dp, vertical = 32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            text = "Murillo Rangel",
+            fontSize = 28.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFF1B4D3E)
+        )
 
+        Image(
+            painter = painterResource(id = R.drawable.rngl),
+            contentDescription = "Foto do Murillo",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .padding(vertical = 20.dp)
+                .size(160.dp)
+
+        )
+
+        Text(
+            text = "Minha linguagem de programação preferida é HTML com foco no JavaScript!",
+            fontSize = 15.sp,
+            color = Color(0xFF6C757D),
+            textAlign = TextAlign.Center
+        )
+    }
 }
+
 
 @Composable
 fun Pagina3() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(horizontal = 28.dp, vertical = 32.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            text = "Matheus Finotti",
+            fontSize = 28.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color(0xFF1B4D3E)
+        )
 
+        Image(
+            painter = painterResource(id = R.drawable.fntt),
+            contentDescription = "Foto do Matheus",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .padding(vertical = 20.dp)
+                .size(160.dp)
+        )
+
+        Text(
+            text = "Minha linguagem favorita é java, pois foi a primeira que eu aprendi e me baseio nela em toda linguagem nova que aprendo.",
+            fontSize = 15.sp,
+            color = Color(0xFF6C757D),
+            textAlign = TextAlign.Center
+        )
+    }
 }
+
 
 @Composable
 fun Pagina4() {
